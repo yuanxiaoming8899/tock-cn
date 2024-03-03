@@ -1,235 +1,139 @@
-# ![TockOS](http://www.tockos.org/assets/img/tock.svg "TockOS Logo")
-
-[![tock-ci](https://github.com/tock/tock/workflows/tock-ci/badge.svg)][tock-ci]
-[![slack](https://img.shields.io/badge/slack-tockos-informational)][slack]
-[![book](https://img.shields.io/badge/book-Tock_Book-green)][tock-book]
-
-Tock is an embedded operating system designed for running multiple concurrent,
-mutually distrustful applications on Cortex-M and RISC-V based embedded
-platforms. Tock's design centers around protection, both from potentially
-malicious applications and from device drivers. Tock uses two mechanisms to
-protect different components of the operating system. First, the kernel and
-device drivers are written in Rust, a systems programming language that provides
-compile-time memory safety and type safety. Tock uses Rust to protect the kernel
-(e.g. the scheduler and hardware abstraction layer) from platform specific
-device drivers as well as isolate device drivers from each other. Second, Tock
-uses memory protection units to isolate applications from each other and the
-kernel.
-
-[tock-ci]: https://github.com/tock/tock/actions?query=branch%3Amaster+workflow%3Atock-ci
-
-TockWorld 2024!
----------------
-
-Join the community of industry professionals, operating system developers,
-academics, and interested developers for the annual [TockWorld
-conference][TockWorld7]. This event in San Diego, CA will take place June 26-28,
-2024. Get your [tickets][TockWorld7] today!
-
-[TockWorld7]: https://world.tockos.org/
-
-Tock 2.x!
----------
-
-Tock is now on its second major release! Tock 2.x includes significant changes
-from Tock 1.x, including:
-
-- Revamped system call interface.
-- Support for 11 new hardware platforms.
-- Updated kernel types.
-- Many new and improved HILs.
-
-For a summary of the latest new features and improvements, check out the
-[changelog](CHANGELOG.md).
-
-
-Learn More
-----------
-
-How would you like to get started?
-
-### Learn How Tock Works
-
-Tock is documented in the [Tock Book][tock-book]. Read through the guides there
-to learn about the overview and design of Tock, its implementation, and much
-more.
-
-
-### Use Tock
-
-Follow our [getting started guide](doc/Getting_Started.md) to set up your system
-to compile Tock.
-
-Head to the [hardware page](https://www.tockos.org/hardware/) to learn about the
-hardware platforms Tock supports. Also check out the [Tock
-Book](https://book.tockos.org) for a step-by-step introduction to getting Tock
-up and running.
-
-A book on how to use Tock with the [micro:bit v2](boards/microbit_v2) and
-[Raspberry Pi Pico](boards/raspberry_pi_pico) boards is [Getting Started with
-Secure Embedded
-Systems](https://link.springer.com/book/10.1007/978-1-4842-7789-8).
-
-Find example applications that run on top of the Tock kernel written in both
-[Rust](https://github.com/tock/libtock-rs) and
-[C](https://github.com/tock/libtock-c).
-
-
-### Develop Tock
-
-Read our [getting started guide](doc/Getting_Started.md) to get the correct
-version of the Rust compiler, then look through the `/kernel`, `/capsules`,
-`/chips`, and `/boards` directories. There are also generated [source code
-docs](https://docs.tockos.org).
-
-We encourage contributions back to Tock and are happy to accept pull requests
-for anything from small documentation fixes to whole new platforms. For details,
-check out our [Contributing Guide](.github/CONTRIBUTING.md). To get started,
-please do not hesitate to submit a PR. We'll happily guide you through any
-needed changes.
-
-
-### Keep Up To Date
-
-Check out the [blog](https://www.tockos.org/blog/) where the **Talking Tock**
-post series highlights what's new in Tock. Also, follow
-[@talkingtock](https://twitter.com/talkingtock) on Twitter.
-
-You can also browse our [email
-group](https://groups.google.com/forum/#!forum/tock-dev) and our [Slack][slack]
-to see discussions on Tock development.
-
-[slack]: https://join.slack.com/t/tockos/shared_invite/enQtNDE5ODQyNDU4NTE1LWVjNTgzMTMwYzA1NDI1MjExZjljMjFmOTMxMGIwOGJlMjk0ZTI4YzY0NTYzNWM0ZmJmZGFjYmY5MTJiMDBlOTk
-
-[tock-book]: https://book.tockos.org
-
-Code of Conduct
----------------
-
-The Tock project adheres to the Rust [Code of Conduct][coc].
-
-All contributors, community members, and visitors are expected to familiarize
-themselves with the Code of Conduct and to follow these standards in all
-Tock-affiliated environments, which includes but is not limited to repositories,
-chats, and meetup events. For moderation issues, please contact members of the
-@tock/core-wg.
-
-[coc]: https://www.rust-lang.org/conduct.html
-
-
-Cite this Project
------------------
-
-<h4>Tock was presented at SOSP'17</h4>
-
-Amit Levy, Bradford Campbell, Branden Ghena, Daniel B. Giffin, Pat Pannuto, Prabal Dutta, and Philip Levis. 2017. Multiprogramming a 64kB Computer Safely and Efficiently. In Proceedings of the 26th Symposium on Operating Systems Principles (SOSP ’17). Association for Computing Machinery, New York, NY, USA, 234–251. DOI: https://doi.org/10.1145/3132747.3132786
-
-<p>
-<details>
-<summary>Bibtex</summary>
-<pre>
-@inproceedings{levy17multiprogramming,
-      title = {Multiprogramming a 64kB Computer Safely and Efficiently},
-      booktitle = {Proceedings of the 26th Symposium on Operating Systems Principles},
-      series = {SOSP'17},
-      year = {2017},
-      month = {10},
-      isbn = {978-1-4503-5085-3},
-      location = {Shanghai, China},
-      pages = {234--251},
-      numpages = {18},
-      url = {http://doi.acm.org/10.1145/3132747.3132786},
-      doi = {10.1145/3132747.3132786},
-      acmid = {3132786},
-      publisher = {ACM},
-      address = {New York, NY, USA},
-      conference-url = {https://www.sigops.org/sosp/sosp17/},
-      author = {Levy, Amit and Campbell, Bradford and Ghena, Branden and Giffin, Daniel B. and Pannuto, Pat and Dutta, Prabal and Levis, Philip},
-}
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/478ec913fdd8bac780ef8900e532c06d89b5917d84318b41e120277d6ff03e99/687474703a2f2f7777772e746f636b6f732e6f72672f6173736574732f696d672f746f636b2e737667"><img src="https://camo.githubusercontent.com/478ec913fdd8bac780ef8900e532c06d89b5917d84318b41e120277d6ff03e99/687474703a2f2f7777772e746f636b6f732e6f72672f6173736574732f696d672f746f636b2e737667" alt="托克操作系统" title="托克操作系统标志" data-canonical-src="http://www.tockos.org/assets/img/tock.svg" style="max-width: 100%;"></a></h1><a id="" class="anchor-element" aria-label="永久链接：" href="#"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://github.com/tock/tock/actions?query=branch%3Amaster+workflow%3Atock-ci"><img src="https://github.com/tock/tock/workflows/tock-ci/badge.svg" alt="托克西" style="max-width: 100%;"></a>
+<a href="https://join.slack.com/t/tockos/shared_invite/enQtNDE5ODQyNDU4NTE1LWVjNTgzMTMwYzA1NDI1MjExZjljMjFmOTMxMGIwOGJlMjk0ZTI4YzY0NTYzNWM0ZmJmZGFjYmY5MTJiMDBlOTk" rel="nofollow"><img src="https://camo.githubusercontent.com/8bd220dd7467a66dd4e3c46a0489d1fc96aba2df45b5c5dbf9461ac70fdaa72c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f736c61636b2d746f636b6f732d696e666f726d6174696f6e616c" alt="松弛" data-canonical-src="https://img.shields.io/badge/slack-tockos-informational" style="max-width: 100%;"></a>
+<a href="https://book.tockos.org" rel="nofollow"><img src="https://camo.githubusercontent.com/3fb8bd4892da295b78d14a892e921ed2388d0aee19c3d429253016a06f3b37df/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f626f6f6b2d546f636b5f426f6f6b2d677265656e" alt="书" data-canonical-src="https://img.shields.io/badge/book-Tock_Book-green" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tock 是一款嵌入式操作系统，设计用于在基于 Cortex-M 和 RISC-V 的嵌入式平台上运行多个并发、互不信任的应用程序。</font><font style="vertical-align: inherit;">Tock 的设计以保护为中心，包括潜在恶意应用程序和设备驱动程序的保护。</font><font style="vertical-align: inherit;">Tock 使用两种机制来保护操作系统的不同组件。</font><font style="vertical-align: inherit;">首先，内核和设备驱动程序是用 Rust 编写的，Rust 是一种提供编译时内存安全和类型安全的系统编程语言。</font><font style="vertical-align: inherit;">Tock 使用 Rust 来保护内核（例如调度程序和硬件抽象层）免受平台特定设备驱动程序的影响，并将设备驱动程序彼此隔离。</font><font style="vertical-align: inherit;">其次，Tock 使用内存保护单元将应用程序彼此隔离以及与内核隔离。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2024 年世界博览会！</font></font></h2><a id="user-content-tockworld-2024" class="anchor-element" aria-label="永久链接：TockWorld 2024！" href="#tockworld-2024"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入由行业专业人士、操作系统开发人员、学者和感兴趣的开发人员组成的社区，参加年度</font></font><a href="https://world.tockos.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TockWorld 会议</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">该活动将于 2024 年 6 月 26 日至 28 日在加利福尼亚州圣地亚哥举行。立即获取</font></font><a href="https://world.tockos.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">门票</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">！</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">托克2.x！</font></font></h2><a id="user-content-tock-2x" class="anchor-element" aria-label="永久链接：Tock 2.x！" href="#tock-2x"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tock 现在推出第二个主要版本！</font><font style="vertical-align: inherit;">Tock 2.x 相对于 Tock 1.x 进行了重大更改，包括：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">改进的系统调用接口。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持 11 个新硬件平台。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更新了内核类型。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许多新的和改进的 HIL。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关最新功能和改进的摘要，请查看
+</font></font><a href="/tock/tock/blob/master/CHANGELOG.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变更日志</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解更多</font></font></h2><a id="user-content-learn-more" class="anchor-element" aria-label="永久链接：了解更多" href="#learn-more"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您想如何开始？</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解 Tock 的工作原理</font></font></h3><a id="user-content-learn-how-tock-works" class="anchor-element" aria-label="永久链接：了解 Tock 的工作原理" href="#learn-how-tock-works"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tock 记录在</font></font><a href="https://book.tockos.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tock Book</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中。</font><font style="vertical-align: inherit;">通读那里的指南，了解 Tock 的概述和设计、其实现等等。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用托克</font></font></h3><a id="user-content-use-tock" class="anchor-element" aria-label="永久链接：使用 Tock" href="#use-tock"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按照我们的</font></font><a href="/tock/tock/blob/master/doc/Getting_Started.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置您的系统来编译 Tock。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">前往</font></font><a href="https://www.tockos.org/hardware/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">硬件页面</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解 Tock 支持的硬件平台。</font><font style="vertical-align: inherit;">另请参阅</font></font><a href="https://book.tockos.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tock Book</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，了解如何安装和运行 Tock 的分步介绍。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于如何将 Tock 与</font></font><a href="/tock/tock/blob/master/boards/microbit_v2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">micro:bit v2</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和
+</font></font><a href="/tock/tock/blob/master/boards/raspberry_pi_pico"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Raspberry Pi Pico</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">板结合使用的书是</font></font><a href="https://link.springer.com/book/10.1007/978-1-4842-7789-8" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">《安全嵌入式系统入门》</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://github.com/tock/libtock-rs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查找在使用Rust</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和
+</font></font><a href="https://github.com/tock/libtock-c"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">C</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编写的 Tock 内核之上运行的示例应用程序
+</font><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发库存</font></font></h3><a id="user-content-develop-tock" class="anchor-element" aria-label="永久链接：开发 Tock" href="#develop-tock"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阅读我们的</font></font><a href="/tock/tock/blob/master/doc/Getting_Started.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以获取正确版本的 Rust 编译器，然后浏览</font></font><code>/kernel</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><code>/capsules</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、
+</font></font><code>/chips</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code>/boards</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目录。</font><font style="vertical-align: inherit;">还有生成的</font></font><a href="https://docs.tockos.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">源代码文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们鼓励向 Tock 做出贡献，并很乐意接受从小型文档修复到全新平台的任何拉取请求。</font><font style="vertical-align: inherit;">有关详细信息，请查看我们的</font></font><a href="/tock/tock/blob/master/.github/CONTRIBUTING.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">首先，请立即提交 PR。</font><font style="vertical-align: inherit;">我们很乐意指导您完成任何所需的更改。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不断更新</font></font></h3><a id="user-content-keep-up-to-date" class="anchor-element" aria-label="永久链接：保持最新状态" href="#keep-up-to-date"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看</font></font><a href="https://www.tockos.org/blog/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">博客</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，其中</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Talking Tock</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+帖子系列重点介绍了 Tock 的新增功能。</font><font style="vertical-align: inherit;">另外，请在 Twitter 上关注
+</font></font><a href="https://twitter.com/talkingtock" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@talkingtock</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您还可以浏览我们的</font></font><a href="https://groups.google.com/forum/#!forum/tock-dev" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">电子邮件组</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和我们的</font></font><a href="https://join.slack.com/t/tockos/shared_invite/enQtNDE5ODQyNDU4NTE1LWVjNTgzMTMwYzA1NDI1MjExZjljMjFmOTMxMGIwOGJlMjk0ZTI4YzY0NTYzNWM0ZmJmZGFjYmY5MTJiMDBlOTk" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Slack</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+，查看有关 Tock 开发的讨论。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">行为守则</font></font></h2><a id="user-content-code-of-conduct" class="anchor-element" aria-label="永久链接：行为准则" href="#code-of-conduct"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tock 项目遵守 Rust</font></font><a href="https://www.rust-lang.org/conduct.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">行为准则</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所有贡献者、社区成员和访客都应熟悉行为准则，并在所有 Tock 附属环境中遵循这些标准，其中包括但不限于存储库、聊天和聚会活动。</font><font style="vertical-align: inherit;">对于审核问题，请联系 @tock/core-wg 的成员。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引用这个项目</font></font></h2><a id="user-content-cite-this-project" class="anchor-element" aria-label="永久链接：引用该项目" href="#cite-this-project"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tock 在 SOSP'17 上发表</font></font></h4><a id="user-content-tock-was-presented-at-sosp17" class="anchor-element" aria-label="永久链接：Tock 在 SOSP'17 上发表" href="#tock-was-presented-at-sosp17"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阿米特·利维、布拉德福德·坎贝尔、布兰登·吉纳、丹尼尔·B·吉芬、帕特·潘努托、普拉巴尔·杜塔和菲利普·李维斯。</font><font style="vertical-align: inherit;">2017。安全高效地对 64kB 计算机进行多道编程。</font><font style="vertical-align: inherit;">第 26 届操作系统原理研讨会 (SOSP '17) 论文集。</font><font style="vertical-align: inherit;">计算机协会，美国纽约州纽约市，234-251。</font><font style="vertical-align: inherit;">DOI：</font></font><a href="https://doi.org/10.1145/3132747.3132786" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://doi.org/10.1145/3132747.3132786</font></font></a></p>
+<p dir="auto">
+</p><details>
+<summary><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">比布泰克斯</font></font></summary>
+<pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@inproceedings{levy17multiprogramming，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      title = {安全高效地对 64kB 计算机进行多道编程},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      booktitle = {第26届操作系统原理研讨会论文集},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      系列 = {SOSP'17}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      年 = {2017}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      月 = {10}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      ISBN = {978-1-4503-5085-3}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      位置 = {中国上海},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      页数 = {234--251},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      页数 = {18},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      网址 = {http://doi.acm.org/10.1145/3132747.3132786},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      doi = {10.1145/3132747.3132786}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      acmid = {3132786}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      发布者 = {ACM}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      地址 = {美国纽约州纽约}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      会议网址 = {https://www.sigops.org/sosp/sosp17/},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      作者 = {Levy、Amit 和 Campbell、Bradford 和 Ghena、Branden 和 Giffin、Daniel B. 和 Pannuto、Pat 和 Dutta、Prabal 和 Levis、Philip}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+}</font></font><font></font>
 </pre>
 </details>
-</p>
-
-
-<p>This is the primary paper that describes the design considerations of Tock.</p>
-
+<p dir="auto"></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这是描述 Tock 设计注意事项的主要论文。</font></font></p>
 <details>
-  <summary>Other Tock-related papers</summary>
-
-  <p>There are two shorter papers that look at potential limitations of the Rust language for embedded software development. The earlier PLOS paper lays out challenges and the later APSys paper lays out potential solutions. Some persons describing work on programming languages and type theory may benefit from these references, but generally, most work should cite the SOSP paper above.</p>
-  <h4><a href="http://doi.acm.org/10.1145/3124680.3124717">APSys: The Case for Writing a Kernel in Rust</a></h4>
-<pre>
-@inproceedings{levy17rustkernel,
-	title = {The Case for Writing a Kernel in Rust},
-	booktitle = {Proceedings of the 8th Asia-Pacific Workshop on Systems},
-	series = {APSys '17},
-	year = {2017},
-	month = {9},
-	isbn = {978-1-4503-5197-3},
-	location = {Mumbai, India},
-	pages = {1:1--1:7},
-	articleno = {1},
-	numpages = {7},
-	url = {http://doi.acm.org/10.1145/3124680.3124717},
-	doi = {10.1145/3124680.3124717},
-	acmid = {3124717},
-	publisher = {ACM},
-	address = {New York, NY, USA},
-	conference-url = {https://www.cse.iitb.ac.in/~apsys2017/},
-	author = {Levy, Amit and Campbell, Bradford and Ghena, Branden and Pannuto, Pat and Dutta, Prabal and Levis, Philip},
+  <summary><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其他 Tock 相关论文</font></font></summary>
+  <p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有两篇较短的论文探讨了 Rust 语言在嵌入式软件开发中的潜在局限性。</font><font style="vertical-align: inherit;">早期的 PLOS 论文列出了挑战，后来的 APSys 论文列出了潜在的解决方案。</font><font style="vertical-align: inherit;">一些描述编程语言和类型论工作的人可能会从这些参考文献中受益，但一般来说，大多数工作应该引用上面的 SOSP 论文。</font></font></p>
+  <div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><a href="http://doi.acm.org/10.1145/3124680.3124717" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">APSys：用 Rust 编写内核的案例</font></font></a></h4><a id="user-content-apsys-the-case-for-writing-a-kernel-in-rust" class="anchor-element" aria-label="永久链接：APSys：用 Rust 编写内核的案例" href="#apsys-the-case-for-writing-a-kernel-in-rust"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@inproceedings{levy17rustkernel,</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	title = {用 Rust 编写内核的案例},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	booktitle = {第八届亚太系统研讨会论文集},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	系列 = {APSys '17}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	年 = {2017}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	月 = {9}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	ISBN = {978-1-4503-5197-3}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	位置 = {印度孟买}，</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	页数 = {1:1--1:7},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	文章编号 = {1},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	页数 = {7},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	网址 = {http://doi.acm.org/10.1145/3124680.3124717},</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+	doi = {10.1145/3124680.3124717}，</font></font><font></font>
+	acmid = {3124717},<font></font>
+	publisher = {ACM},<font></font>
+	address = {New York, NY, USA},<font></font>
+	conference-url = {https://www.cse.iitb.ac.in/~apsys2017/},<font></font>
+	author = {Levy, Amit and Campbell, Bradford and Ghena, Branden and Pannuto, Pat and Dutta, Prabal and Levis, Philip},<font></font>
 }</pre>
-
-  <h4><a href="http://dx.doi.org/10.1145/2818302.2818306">PLOS: Ownership is Theft: Experiences Building an Embedded OS in Rust</a></h4>
-<pre>
-@inproceedings{levy15ownership,
-	title = {Ownership is Theft: Experiences Building an Embedded {OS} in {R}ust},
-	booktitle = {Proceedings of the 8th Workshop on Programming Languages and Operating Systems},
-	series = {PLOS 2015},
-	year = {2015},
-	month = {10},
-	isbn = {978-1-4503-3942-1},
-	doi = {10.1145/2818302.2818306},
-	url = {http://dx.doi.org/10.1145/2818302.2818306},
-	location = {Monterey, CA},
-	publisher = {ACM},
-	address = {New York, NY, USA},
-	conference-url = {http://plosworkshop.org/2015/},
-	author = {Levy, Amit and Andersen, Michael P and Campbell, Bradford and Culler, David and Dutta, Prabal and Ghena, Branden and Levis, Philip and Pannuto, Pat},
+  <div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><a href="http://dx.doi.org/10.1145/2818302.2818306" rel="nofollow">PLOS: Ownership is Theft: Experiences Building an Embedded OS in Rust</a></h4><a id="user-content-plos-ownership-is-theft-experiences-building-an-embedded-os-in-rust" class="anchor-element" aria-label="Permalink: PLOS: Ownership is Theft: Experiences Building an Embedded OS in Rust" href="#plos-ownership-is-theft-experiences-building-an-embedded-os-in-rust"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<pre>@inproceedings{levy15ownership,<font></font>
+	title = {Ownership is Theft: Experiences Building an Embedded {OS} in {R}ust},<font></font>
+	booktitle = {Proceedings of the 8th Workshop on Programming Languages and Operating Systems},<font></font>
+	series = {PLOS 2015},<font></font>
+	year = {2015},<font></font>
+	month = {10},<font></font>
+	isbn = {978-1-4503-3942-1},<font></font>
+	doi = {10.1145/2818302.2818306},<font></font>
+	url = {http://dx.doi.org/10.1145/2818302.2818306},<font></font>
+	location = {Monterey, CA},<font></font>
+	publisher = {ACM},<font></font>
+	address = {New York, NY, USA},<font></font>
+	conference-url = {http://plosworkshop.org/2015/},<font></font>
+	author = {Levy, Amit and Andersen, Michael P and Campbell, Bradford and Culler, David and Dutta, Prabal and Ghena, Branden and Levis, Philip and Pannuto, Pat},<font></font>
 }</pre>
-  <p>There is also a paper on the Tock security model. The threat model documentation in the docs/ folder is the source of truth for the current Tock threat model, but this paper represents a snapshot of the reasoning behind the Tock threat model and details how it compares to those in similar embedded OSes.</p>
-  <h4><a href="https://dx.doi.org/10.1145/3517208.3523752">EuroSec: Tiered Trust for useful embedded systems security</a></h4>
-<pre>
-@inproceedings{10.1145/3517208.3523752,
-	author = {Ayers, Hudson and Dutta, Prabal and Levis, Philip and Levy, Amit and Pannuto, Pat and Van Why, Johnathan and Watson, Jean-Luc},
-	title = {Tiered Trust for Useful Embedded Systems Security},
-	year = {2022},
-	isbn = {9781450392556},
-	publisher = {Association for Computing Machinery},
-	address = {New York, NY, USA},
-	url = {https://doi.org/10.1145/3517208.3523752},
-	doi = {10.1145/3517208.3523752},
-	booktitle = {Proceedings of the 15th European Workshop on Systems Security},
-	pages = {15–21},
-	numpages = {7},
-	keywords = {security, embedded systems, operating systems, IoT},
-	location = {Rennes, France},
-	series = {EuroSec '22}
+  <p dir="auto">There is also a paper on the Tock security model. The threat model documentation in the docs/ folder is the source of truth for the current Tock threat model, but this paper represents a snapshot of the reasoning behind the Tock threat model and details how it compares to those in similar embedded OSes.</p>
+  <div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><a href="https://dx.doi.org/10.1145/3517208.3523752" rel="nofollow">EuroSec: Tiered Trust for useful embedded systems security</a></h4><a id="user-content-eurosec-tiered-trust-for-useful-embedded-systems-security" class="anchor-element" aria-label="Permalink: EuroSec: Tiered Trust for useful embedded systems security" href="#eurosec-tiered-trust-for-useful-embedded-systems-security"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<pre>@inproceedings{10.1145/3517208.3523752,<font></font>
+	author = {Ayers, Hudson and Dutta, Prabal and Levis, Philip and Levy, Amit and Pannuto, Pat and Van Why, Johnathan and Watson, Jean-Luc},<font></font>
+	title = {Tiered Trust for Useful Embedded Systems Security},<font></font>
+	year = {2022},<font></font>
+	isbn = {9781450392556},<font></font>
+	publisher = {Association for Computing Machinery},<font></font>
+	address = {New York, NY, USA},<font></font>
+	url = {https://doi.org/10.1145/3517208.3523752},<font></font>
+	doi = {10.1145/3517208.3523752},<font></font>
+	booktitle = {Proceedings of the 15th European Workshop on Systems Security},<font></font>
+	pages = {15–21},<font></font>
+	numpages = {7},<font></font>
+	keywords = {security, embedded systems, operating systems, IoT},<font></font>
+	location = {Rennes, France},<font></font>
+	series = {EuroSec '22}<font></font>
 }</pre>
 </details>
-
-
-License
--------
-
-Licensed under either of
-
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or
-  http://www.apache.org/licenses/LICENSE-2.0)
-- MIT license ([LICENSE-MIT](LICENSE-MIT) or
-  http://opensource.org/licenses/MIT)
-
-at your option.
-
-Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in the work by you, as defined in the Apache-2.0 license, shall
-be dual licensed as above, without any additional terms or conditions.
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2><a id="user-content-license" class="anchor-element" aria-label="永久链接：许可证" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已获得以下任一许可</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache 许可证，版本 2.0（</font></font><a href="/tock/tock/blob/master/LICENSE-APACHE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LICENSE-APACHE</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或
+</font></font><a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.apache.org/licenses/LICENSE-2.0</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MIT 许可证（</font></font><a href="/tock/tock/blob/master/LICENSE-MIT"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LICENSE-MIT</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或
+</font></font><a href="http://opensource.org/licenses/MIT" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://opensource.org/licenses/MIT</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由您选择。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">除非您另有明确说明，否则您有意提交的包含在作品中的任何贡献（如 Apache-2.0 许可证中所定义）均应获得上述双重许可，没有任何附加条款或条件。</font></font></p>
+</article></div>
